@@ -1,4 +1,4 @@
-# agridictionaryoffline
+# Agri-dictionary offline
 
 An offline Agri-Dictionary using flutter
 
