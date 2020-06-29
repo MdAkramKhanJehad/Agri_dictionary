@@ -16,8 +16,8 @@ class Favourite extends StatefulWidget {
 }
 
 class _FavouriteState extends State<Favourite> {
-  Box<WordModel> wordBox;
 
+  Box<WordModel> wordBox;
 
   @override
   void initState() {
@@ -28,10 +28,11 @@ class _FavouriteState extends State<Favourite> {
   Widget build(BuildContext context) {
 
     return Scaffold(
+      backgroundColor: Colors.green.withOpacity(0.3),
       appBar: header(context, 'Favourite Words'),
 //      customAppBar(context, 'Favourite Words'),
       body: Container(
-          color: Colors.green.withOpacity(0.3),
+//          color: Colors.green.withOpacity(0.3),
 //          decoration: BoxDecoration(
 //            gradient: LinearGradient(
 //              begin: Alignment.topRight,
@@ -50,8 +51,9 @@ class _FavouriteState extends State<Favourite> {
                 ValueListenableBuilder(
                   valueListenable: wordBox.listenable(),
                   builder: (context, Box<WordModel> words,_){
+
                     var favouriteWords = wordBox.values.where((item) =>
-                                    item.isFavourite==true).toList();
+                                    item.isFavourite==1.toString()).toList();
                       return ListView.separated(
                           physics: NeverScrollableScrollPhysics(),
 //                      scrollDirection: Axis.vertical,
@@ -76,7 +78,7 @@ class _FavouriteState extends State<Favourite> {
                                       fontSize: 20,
                                       fontWeight: FontWeight.w400
                                     ),),
-                                    subtitle: Text(wordBox.get(key).banglaMeaning),
+//                                    subtitle: Text(wordBox.get(key).banglaMeaning),
                                   ),
 
                               ),

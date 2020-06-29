@@ -27,17 +27,17 @@ class _AboutUsState extends State<AboutUs> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration:  BoxDecoration(
-        gradient: LinearGradient(
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
-          colors: [
-            Colors.blueGrey.shade700,
-            Colors.grey.shade300
-          ]
-        ),
-      ),
-//      color: Colors.blueGrey.shade100,
+//      decoration:  BoxDecoration(
+//        gradient: LinearGradient(
+//          begin: Alignment.topLeft,
+//          end: Alignment.bottomRight,
+//          colors: [
+//            Colors.blueGrey.shade700,
+//            Colors.grey.shade300
+//          ]
+//        ),
+//      ),
+      color: Colors.green.withOpacity(0.3),
       padding: EdgeInsets.all(40),
       child: SingleChildScrollView(
         child: Column(

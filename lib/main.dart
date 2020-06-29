@@ -34,7 +34,6 @@ class _MyAppState extends State<MyApp> {
 
     String str = await rootBundle.loadString('assets/test.txt');
     List<List<dynamic>> rowsAsListOfValues = const CsvToListConverter().convert(str);
-
     print('*****in main retrieve from file******');
     return rowsAsListOfValues;
   }
@@ -43,12 +42,17 @@ class _MyAppState extends State<MyApp> {
     List<List<dynamic>> allTheWords = await retrieveDataFromFile();
     print("*****inserting::length:${allTheWords.length} ******");
     for(int i=0;i<allTheWords.length;i++){
-      final wordModel = WordModel(isFavourite: false,word: allTheWords[i][0],
-          banglaMeaning: allTheWords[i][1],englishMeaning: allTheWords[i][2],
-            definition: allTheWords[i][3]);
-      print('no ${i+1}: ${wordModel.toString()}');
+      final wordModel = WordModel(word: allTheWords[i][0],
+          partsOfSpeech: allTheWords[i][3],
+            definition: allTheWords[i][1], example: allTheWords[i][2], isFavourite: 0.toString());
+      if(i==0)
+      print('no ${i+1}:${wordModel.partsOfSpeech}zz');
       wordBox.put(wordModel.word, wordModel);
     }
+  }
+
+  deleteBox() async{
+    await Hive.deleteBoxFromDisk(wordBoxName);
   }
 
   @override
@@ -58,6 +62,7 @@ class _MyAppState extends State<MyApp> {
     if(wordBox.isEmpty){
       insertInBox();
     } else{
+//      deleteBox();
       print('*******BOX IS NOT EMPTY::Size:${wordBox.length} **');
 //      makeCustomDialog();
     }

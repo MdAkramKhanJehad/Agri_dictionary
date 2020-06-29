@@ -159,11 +159,11 @@ class _HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
-    if(counter==1){
-      Future.delayed(Duration.zero, () =>makeCustomDialog(_scaffoldKey.currentContext));
-      counter++;
-      print('***counter: $counter***');
-    }
+//    if(counter==1){
+//      Future.delayed(Duration.zero, () =>makeCustomDialog(_scaffoldKey.currentContext));
+//      counter++;
+//      print('***counter: $counter***');
+//    }
 
     return Scaffold(
       key: _scaffoldKey,

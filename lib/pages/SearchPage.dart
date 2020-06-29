@@ -60,7 +60,12 @@ class _SearchPageState extends State<SearchPage>  {
       List<String> keys = wordBox.keys.cast<String>().toList();
 
       suggestions = currentQuery.isEmpty ? null:
-        keys.where((element) => element.startsWith(currentQuery)).toList();
+        keys.where((element) {
+          if(element.toLowerCase().startsWith(currentQuery) || element.toUpperCase().startsWith(currentQuery)|| element.startsWith(currentQuery))
+            return true;
+          else
+            return false;
+        }).toList();
     });
 
   }

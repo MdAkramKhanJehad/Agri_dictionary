@@ -17,11 +17,11 @@ class WordModelAdapter extends TypeAdapter<WordModel> {
       for (var i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
     return WordModel(
-      isFavourite: fields[4] as bool,
       word: fields[0] as String,
-      banglaMeaning: fields[1] as String,
-      definition: fields[3] as String,
-      englishMeaning: fields[2] as String,
+      definition: fields[1] as String,
+      example: fields[2] as String,
+      partsOfSpeech: fields[3] as String,
+      isFavourite: fields[4] as String,
     );
   }
 
@@ -32,11 +32,11 @@ class WordModelAdapter extends TypeAdapter<WordModel> {
       ..writeByte(0)
       ..write(obj.word)
       ..writeByte(1)
-      ..write(obj.banglaMeaning)
-      ..writeByte(2)
-      ..write(obj.englishMeaning)
-      ..writeByte(3)
       ..write(obj.definition)
+      ..writeByte(2)
+      ..write(obj.example)
+      ..writeByte(3)
+      ..write(obj.partsOfSpeech)
       ..writeByte(4)
       ..write(obj.isFavourite);
   }

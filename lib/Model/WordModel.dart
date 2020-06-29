@@ -7,21 +7,21 @@ class WordModel {
   @HiveField(0)
   final String word;
   @HiveField(1)
-  final String banglaMeaning;
-  @HiveField(2)
-  final String englishMeaning;
-  @HiveField(3)
   final String definition;
+  @HiveField(2)
+  final String example;
+  @HiveField(3)
+  final String partsOfSpeech;
   @HiveField(4)
-  bool isFavourite = false;
+  String isFavourite = 0.toString();
 
 
 
-  WordModel({this.isFavourite,this.word, this.banglaMeaning, this.definition, this.englishMeaning});
+  WordModel({this.word, this.definition,this.example, this.partsOfSpeech,this.isFavourite});
 
   @override
   String toString() {
-    return 'WordModel{word: $word, banglaMeaning: $banglaMeaning, englishMeaning: $englishMeaning, definition: $definition, isFavourite: $isFavourite}';
+    return 'WordModel{word: $word, definition: $definition, partsOfSpeech: $partsOfSpeech, isFav: $isFavourite}';
   }
 //
 //  Map<String, dynamic> toMap(){
