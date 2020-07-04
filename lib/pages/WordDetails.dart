@@ -99,15 +99,16 @@ class _WordDetailsState extends State<WordDetails> {
                       FadeAnimation(1.1,Center(
                         child: Container(
                           padding: EdgeInsets.only(left: 20),
-                          color: Colors.lightGreen.shade200,
+                          color: Color(0xFF006666),
                           width: MediaQuery.of(context).size.width,
                           height: 33,
                           child: Text(
                             'Word',
                             style: TextStyle(
-                              fontWeight: FontWeight.w500,
+                              fontFamily: 'Kreon',
+                              fontWeight: FontWeight.w600,
                               fontSize: 25,
-                              color: Colors.black
+                              color: Colors.white
                             ),
                           ),
                         ),
@@ -118,8 +119,9 @@ class _WordDetailsState extends State<WordDetails> {
                         child: Text(
                           widget.wordModel.word,
                           style: TextStyle(
+                            fontFamily: 'Kreon',
                             fontSize: 33,
-                            fontWeight: FontWeight.w300
+                            fontWeight: FontWeight.w400
                           ),
                         ),
                       )),
@@ -127,15 +129,17 @@ class _WordDetailsState extends State<WordDetails> {
                       FadeAnimation(1.2,Center(
                         child: Container(
                           height: 33,
-                          color: Colors.lightGreen.shade200,
+                          color:Color(0xFF006666) ,
+//                          Colors.lightGreen.shade200,
                           padding: EdgeInsets.only(left: 20),
                           width: MediaQuery.of(context).size.width,
                           child: Text(
                             'Definition',
                             style: TextStyle(
-                              fontWeight: FontWeight.w500,
+                              fontFamily: 'Kreon',
+                              fontWeight: FontWeight.w600,
                               fontSize: 25,
-                              color: Colors.black
+                              color: Colors.white
                             ),
                           ),
                         ),
@@ -146,7 +150,8 @@ class _WordDetailsState extends State<WordDetails> {
                         child: Text(
                           widget.wordModel.definition,
                           style: TextStyle(
-                            fontSize: 20,
+                            fontFamily: 'Fenix',
+                            fontSize: 22,
                             fontWeight: FontWeight.w300
                           ),
                         ),
@@ -155,15 +160,16 @@ class _WordDetailsState extends State<WordDetails> {
                       FadeAnimation(1.3,Center(
                         child: Container(
                           height: 33,
-                          color: Colors.lightGreen.shade200,
+                          color: Color(0xFF006666),
                           padding: EdgeInsets.only(left: 20),
                           width: MediaQuery.of(context).size.width,
                           child: Text(
                             'Examples',
                             style: TextStyle(
-                              fontWeight: FontWeight.w500,
+                              fontFamily: 'Kreon',
+                              fontWeight: FontWeight.w600,
                               fontSize: 25,
-                              color: Colors.black
+                              color: Colors.white
                             ),
                           ),
                         ),
@@ -174,8 +180,9 @@ class _WordDetailsState extends State<WordDetails> {
                         child: Text(
                           widget.wordModel.example,
                           style: TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.w300
+                            fontFamily: 'Fenix',
+                            fontSize: 22,
+//                            fontWeight: FontWeight.w300
                           ),
                         ),
                       )),
@@ -183,15 +190,17 @@ class _WordDetailsState extends State<WordDetails> {
                       FadeAnimation(1.4,Center(
                         child: Container(
                           height: 33,
-                          color: Colors.lightGreen.shade200,
+                          color:Color(0xFF006666),
+//                          Colors.lightGreen.shade200,
                           padding: EdgeInsets.only(left: 20),
                           width: MediaQuery.of(context).size.width,
                           child: Text(
                             'Parts of Speech',
                             style: TextStyle(
-                              fontWeight: FontWeight.w500,
+                              fontFamily: 'Kreon',
+                              fontWeight: FontWeight.w600,
                               fontSize: 25,
-                              color: Colors.black
+                              color: Colors.white
                             ),
                           ),
                         ),
@@ -202,7 +211,8 @@ class _WordDetailsState extends State<WordDetails> {
                         child: Text(
                           widget.wordModel.partsOfSpeech,
                           style: TextStyle(
-                            fontSize: 20,
+                            fontFamily: 'Fenix',
+                            fontSize: 23,
                             fontWeight: FontWeight.w300
                           ),
                         ),

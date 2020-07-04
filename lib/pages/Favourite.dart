@@ -16,7 +16,7 @@ class Favourite extends StatefulWidget {
 }
 
 class _FavouriteState extends State<Favourite> {
-
+  GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   Box<WordModel> wordBox;
 
   @override
@@ -28,8 +28,11 @@ class _FavouriteState extends State<Favourite> {
   Widget build(BuildContext context) {
 
     return Scaffold(
+      key: _scaffoldKey,
+      drawer: buildDrawer(context),
       backgroundColor: Colors.green.withOpacity(0.3),
-      appBar: header(context, 'Favourite Words'),
+      appBar: appBar(context,'Favourite Words'),
+//      header(context, 'Favourite Words'),
 //      customAppBar(context, 'Favourite Words'),
       body: Container(
 //          color: Colors.green.withOpacity(0.3),
@@ -43,7 +46,7 @@ class _FavouriteState extends State<Favourite> {
 //              ]
 //            ),
 //          ),
-          padding: EdgeInsets.only(top: 20, left: 20, right: 20),
+          padding: EdgeInsets.only(top: 10, left: 20, right: 20),
           child: SingleChildScrollView(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -64,7 +67,7 @@ class _FavouriteState extends State<Favourite> {
                             return Hero(
                               tag: key,
                               child: Card(
-                                  color: Colors.white70,
+                                  color: Colors.teal,
                                   child: ListTile(
                                     onTap: () => Navigator.push(
                                       context,
@@ -75,10 +78,12 @@ class _FavouriteState extends State<Favourite> {
 //                              Navigator.push(context, MaterialPageRoute(builder:
 //                              (context) => WordDetails(wordModel:wordModel))),
                                     title:  Text(key, style: TextStyle(
+                                      color: Colors.white,
+                                      fontFamily: 'Volkhov',
                                       fontSize: 20,
                                       fontWeight: FontWeight.w400
                                     ),),
-//                                    subtitle: Text(wordBox.get(key).banglaMeaning),
+//                                    subtitle: Text(wordBox.get(key).example),
                                   ),
 
                               ),

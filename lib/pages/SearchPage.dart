@@ -19,7 +19,7 @@ class _SearchPageState extends State<SearchPage>  {
   String query='';
   TextEditingController _controller = TextEditingController();
   List<String> suggestions = [];
-
+  GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
@@ -76,9 +76,11 @@ class _SearchPageState extends State<SearchPage>  {
   Widget build(BuildContext context) {
 //    super.build(context);
     return Scaffold(
-      appBar:
+      key:_scaffoldKey ,
+      drawer: buildDrawer(context),
+      appBar: appBar(context,'Search Word'),
 //      customAppBar(context, 'Search Word'),
-      header(context, 'Word Search'),
+//      header(context, 'Word Search'),
       body: Container(
 //        decoration:  BoxDecoration(
 //          gradient: LinearGradient(
@@ -110,8 +112,9 @@ class _SearchPageState extends State<SearchPage>  {
                       controller: _controller,
                       decoration: InputDecoration(
                         prefixIcon: prefixIcon(context) ,
-                        contentPadding: EdgeInsets.only(left: 10, top: 14),
+                        contentPadding: EdgeInsets.only(left: 10, top: 14,bottom: 15),
                         hintText: 'Search for a Word',
+                        hintStyle: TextStyle(fontFamily: 'Kreon',fontSize: 19),
                         border: InputBorder.none
                       ),
                     ),
@@ -148,6 +151,7 @@ class _SearchPageState extends State<SearchPage>  {
                         text: TextSpan(
                           text: suggestions[index].substring(0,query.length),
                           style: TextStyle(
+                            fontFamily: 'Volkhov',
                             fontSize: 18,
                             color: Colors.black,
                             fontWeight: FontWeight.bold,
@@ -156,6 +160,7 @@ class _SearchPageState extends State<SearchPage>  {
                             TextSpan(
                               text: suggestions[index].substring(query.length),
                               style: TextStyle(
+                                fontFamily: 'Fenix',
                                 fontSize: 18,
                                 color: Colors.grey,
                               )

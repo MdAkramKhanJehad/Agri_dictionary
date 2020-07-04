@@ -9,9 +9,9 @@ class WordModel {
   @HiveField(1)
   final String definition;
   @HiveField(2)
-  final String example;
+  String example = '';
   @HiveField(3)
-  final String partsOfSpeech;
+  String partsOfSpeech = '';
   @HiveField(4)
   String isFavourite = 0.toString();
 

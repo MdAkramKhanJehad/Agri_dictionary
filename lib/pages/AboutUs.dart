@@ -15,7 +15,7 @@ class _AboutUsState extends State<AboutUs> {
 
   _launchURL() async {
 
-    final url = 'mailto:a.jehadkhan@gmail.com?subject=$sub&body=$body';
+    final url = 'mailto:agrisciencesociety@yahoo.com?subject=$sub&body=$body';
     if (await canLaunch(url)) {
       await launch(url);
     } else {
@@ -49,40 +49,43 @@ class _AboutUsState extends State<AboutUs> {
               'About Us',
               style: TextStyle(
                 fontSize: 40,
-                fontFamily: 'OdibeeSans',
+                fontFamily: 'Kreon',
                 fontWeight: FontWeight.bold
               ),
             )),
+            Divider(height: 5,color: Colors.black87,),
             SizedBox(height: 10,),
             Center(
               child: FadeAnimation(1.1,Text(
                 'Agri-Science Society(AgSS)',
                 style: TextStyle(
                   fontSize: 25,
-                  fontFamily: 'Oswald',
-                  fontWeight: FontWeight.w100
+                  fontFamily: 'Kreon',
+                  fontWeight: FontWeight.bold
                 ),
               )),
             ),
+            SizedBox(height: 7,),
             FadeAnimation(1.2,Text(
               '"Let\'s Make a Future of Agriculture"',
               style: TextStyle(
                 fontSize: 16,
-                fontFamily: 'Oswald',
-                fontWeight: FontWeight.w100
+                fontFamily: 'Kreon',
+                fontWeight: FontWeight.bold
               ),
             )),
-            SizedBox(height: 5,),
+            SizedBox(height: 13,),
             AspectRatio(
               aspectRatio: 16/9,
               child: FadeAnimation(1.3,Image(image: AssetImage('assets/leaf.png'),))
             ),
             SizedBox(height: 35,),
             FadeAnimation(1.4,Text(
+//              'Agri-Science Society(AgSS) is a non-profit agricultural organization founded on May,2019.The mission of AgSS is to transform traditional farming into smart farming.',
               'Any Suggestions?',
               style: TextStyle(
-                fontSize: 24,
-                fontFamily: 'Oswald',
+                fontSize: 22,
+                fontFamily: 'Volkhov',
                 fontWeight: FontWeight.w100
               ),
             )),

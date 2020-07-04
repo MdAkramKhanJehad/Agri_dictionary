@@ -1,6 +1,7 @@
 import 'dart:io';
 import 'package:agridictionaryoffline/Model/WordModel.dart';
 import 'package:agridictionaryoffline/pages/Home.dart';
+import 'package:agridictionaryoffline/pages/SideBarLayout.dart';
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 import 'package:path_provider/path_provider.dart';
@@ -9,13 +10,13 @@ import 'package:csv/csv.dart';
 
 
 const String wordBoxName = 'dictionary';
+Box<WordModel> wordBox;
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   Directory document = await getApplicationDocumentsDirectory();
   Hive.init(document.path);
   Hive.registerAdapter(WordModelAdapter());
-//  final box = await
   await Hive.openBox<WordModel>(wordBoxName);
   runApp(MyApp());
 
@@ -28,7 +29,7 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  Box<WordModel> wordBox;
+
 
   retrieveDataFromFile() async{
 
@@ -77,7 +78,13 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home:Home() ,
+      theme: ThemeData(
+//        scaffoldBackgroundColor:Colors.blue,
+        primaryColor: Colors.grey
+      ),
+      home:
+//      SideBarLayout(),
+      Home() ,
     );
   }
 }
