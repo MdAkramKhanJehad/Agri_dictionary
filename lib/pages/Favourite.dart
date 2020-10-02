@@ -30,7 +30,7 @@ class _FavouriteState extends State<Favourite> {
     return Scaffold(
       key: _scaffoldKey,
       drawer: buildDrawer(context),
-      backgroundColor: Colors.green.withOpacity(0.3),
+//      backgroundColor: Colors.green.withOpacity(0.3),
       appBar: appBar(context,'Favourite Words'),
 //      header(context, 'Favourite Words'),
 //      customAppBar(context, 'Favourite Words'),
@@ -46,6 +46,7 @@ class _FavouriteState extends State<Favourite> {
 //              ]
 //            ),
 //          ),
+
           padding: EdgeInsets.only(top: 10, left: 20, right: 20),
           child: SingleChildScrollView(
             child: Column(
@@ -67,7 +68,10 @@ class _FavouriteState extends State<Favourite> {
                             return Hero(
                               tag: key,
                               child: Card(
-                                  color: Colors.teal,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(15.0),
+                                ),
+                                  color: Colors.teal.shade500,
                                   child: ListTile(
                                     onTap: () => Navigator.push(
                                       context,
@@ -80,7 +84,7 @@ class _FavouriteState extends State<Favourite> {
                                     title:  Text(key, style: TextStyle(
                                       color: Colors.white,
                                       fontFamily: 'Volkhov',
-                                      fontSize: 20,
+                                      fontSize: 18,
                                       fontWeight: FontWeight.w400
                                     ),),
 //                                    subtitle: Text(wordBox.get(key).example),

@@ -1,7 +1,7 @@
 import 'package:agridictionaryoffline/animation/FadeAnimation.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'WordDetails.dart';
+import 'package:agridictionaryoffline/CustomWidgets.dart';
 
 
 class AboutUs extends StatefulWidget {
@@ -10,18 +10,18 @@ class AboutUs extends StatefulWidget {
 }
 
 class _AboutUsState extends State<AboutUs> {
-  String sub = 'Suggestions About Agri-Dictionary';
-  String body  = '';
 
-  _launchURL() async {
-
-    final url = 'mailto:agrisciencesociety@yahoo.com?subject=$sub&body=$body';
-    if (await canLaunch(url)) {
-      await launch(url);
-    } else {
-      throw 'Could not launch $url';
-    }
-  }
+//
+//  _launchURL() async {
+//    final String sub = 'Suggestions About Agri-Dictionary';
+//    final String body  = '';
+//    final url = 'mailto:agrisciencesociety@yahoo.com?subject=$sub&body=$body';
+//    if (await canLaunch(url)) {
+//      await launch(url);
+//    } else {
+//      throw 'Could not launch $url';
+//    }
+//  }
 
 
   @override
@@ -37,7 +37,8 @@ class _AboutUsState extends State<AboutUs> {
 //          ]
 //        ),
 //      ),
-      color: Colors.green.withOpacity(0.3),
+      color:Colors.white,
+//      Colors.green.withOpacity(0.3),
       padding: EdgeInsets.all(40),
       child: SingleChildScrollView(
         child: Column(
@@ -93,7 +94,7 @@ class _AboutUsState extends State<AboutUs> {
               child: FadeAnimation(1.5,RaisedButton(
                 hoverElevation: 1,
                 color: Colors.cyan,
-                onPressed: _launchURL,
+                onPressed:() => launchURL(),
                 child: Text('Mail AgSS'),
               )),
             ),

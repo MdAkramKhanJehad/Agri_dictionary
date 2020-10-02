@@ -3,19 +3,19 @@ import 'package:agridictionaryoffline/pages/AddWord.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-
+launchURL() async {
+  String sub = 'Suggestions About Agri-Dictionary';
+  String body  = '';
+  final url = 'mailto:agrisciencesociety@yahoo.com?subject=$sub&body=$body';
+  if (await canLaunch(url)) {
+    await launch(url);
+  } else {
+    throw 'Could not launch $url';
+  }
+}
 
 Drawer buildDrawer(BuildContext context){
-  _launchURL() async {
-    String sub = 'Suggestions About Agri-Dictionary';
-    String body  = '';
-    final url = 'mailto:agrisciencesociety@yahoo.com?subject=$sub&body=$body';
-    if (await canLaunch(url)) {
-      await launch(url);
-    } else {
-      throw 'Could not launch $url';
-    }
-  }
+
 
   makeCustomDialog(BuildContext context, String title, String content, double heightOfBox, bool isEmail, bool isDisclaimer){
     showDialog(
@@ -35,7 +35,7 @@ Drawer buildDrawer(BuildContext context){
                 MaterialButton(
                   minWidth: 100,
                   height: 39,
-                  onPressed: ()=> _launchURL() ,
+                  onPressed: ()=> launchURL() ,
                   color: Colors.white,
                   elevation: 0,
                   shape: RoundedRectangleBorder(

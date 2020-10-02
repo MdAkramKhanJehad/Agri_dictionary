@@ -47,7 +47,8 @@ class _MyAppState extends State<MyApp> {
           partsOfSpeech: allTheWords[i][3],
             definition: allTheWords[i][1], example: allTheWords[i][2], isFavourite: 0.toString());
       if(i==0)
-      print('no ${i+1}:${wordModel.partsOfSpeech}zz');
+        print('no ${i+1}:${wordModel.partsOfSpeech}zz');
+      // print('${allTheWords[i][0]} :::::  ${i+1}');
       wordBox.put(wordModel.word, wordModel);
     }
   }
@@ -63,8 +64,8 @@ class _MyAppState extends State<MyApp> {
     if(wordBox.isEmpty){
       insertInBox();
     } else{
-//      deleteBox();
-      print('*******BOX IS NOT EMPTY::Size:${wordBox.length} **');
+     // deleteBox();
+     print('*******BOX IS NOT EMPTY::Size:${wordBox.length} **');
 //      makeCustomDialog();
     }
   }

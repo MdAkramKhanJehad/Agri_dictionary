@@ -26,13 +26,12 @@ dependencies:
   curved_navigation_bar: ^0.3.2
   intl: ^0.16.1
   clip_shadow: ^0.2.1
-  url_launcher: ^5.4.10
+  url_launcher: ^5.4.11
   simple_animations:
   flutter_tts: ^1.2.2
   hive: ^1.4.1+1
   hive_flutter: ^0.3.0+2
   path_provider: ^1.6.11
-  dartx: ^0.4.2
   csv: ^4.0.3
   rxdart: ^0.24.1
   # The following adds the Cupertino Icons font to your application.
@@ -46,7 +45,7 @@ dev_dependencies:
   build_runner: ^1.10.0
 
 dependency_overrides:
-  dartx: ^0.4.2
+  dartx:
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 
@@ -61,7 +60,6 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/leaf.png
-    - assets/text.csv
     - assets/test.txt
     - assets/leaf2.png
     - assets/speak.png
@@ -79,11 +77,6 @@ flutter:
   # list giving the asset and other descriptors for the font. For
   # example:
   fonts:
-    - family: Oswald
-      fonts:
-        - asset: fonts/Oswald/static/Oswald-Regular.ttf
-        - asset: fonts/Oswald/static/Oswald-Bold.ttf
-        - asset: fonts/Oswald/static/Oswald-Medium.ttf
   #         style: italic
     - family: SuezOne
       fonts:

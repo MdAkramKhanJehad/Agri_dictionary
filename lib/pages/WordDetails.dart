@@ -58,11 +58,10 @@ class _WordDetailsState extends State<WordDetails> {
                   fit:BoxFit.fill,
                 ),
                 onTap: () {
-                  print('*****tag:${widget.heroTag}*****');
                   _speak();
                   } ,
               ),
-//
+
               SizedBox(width: 11,),
               IconButton(
                 icon: widget.wordModel.isFavourite == 1.toString() ? Icon(Icons.bookmark, size: 30,color: Colors.yellow,):

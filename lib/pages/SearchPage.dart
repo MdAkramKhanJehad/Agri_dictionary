@@ -93,7 +93,7 @@ class _SearchPageState extends State<SearchPage>  {
 //          ),
 //        ),
 
-        color: Colors.green.withOpacity(0.3),
+//        color: Colors.green.withOpacity(0.3),
         padding: EdgeInsets.all(15),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,

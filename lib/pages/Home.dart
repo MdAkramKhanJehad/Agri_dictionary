@@ -50,7 +50,8 @@ class _HomeState extends State<Home> {
       height: 50,
       color: Colors.teal,
       buttonBackgroundColor: Colors.teal.shade700,
-      backgroundColor: Colors.green.withOpacity(0.3),
+      backgroundColor: Colors.white,
+//      Colors.green.withOpacity(0.3),
       items: <Widget>[
         Icon(Icons.search, size: 25, color: Colors.black,),
         Icon(Icons.favorite_border, size: 25,color: Colors.black,),
@@ -67,8 +68,6 @@ class _HomeState extends State<Home> {
     pageController.dispose();
     super.dispose();
   }
-
-
 
 
   @override
