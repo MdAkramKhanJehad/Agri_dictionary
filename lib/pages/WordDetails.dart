@@ -28,10 +28,10 @@ class _WordDetailsState extends State<WordDetails> {
   }
 
   makeWordFavouriteOrNot() async {
-    if (widget.wordModel.isFavourite == false){
-      widget.wordModel.isFavourite = true;
+    if (widget.wordModel.isFavourite == 0.toString()){
+      widget.wordModel.isFavourite = 1.toString();
     } else{
-      widget.wordModel.isFavourite = false;
+      widget.wordModel.isFavourite = 0.toString();
     }
     final wordBox = Hive.box<WordModel>(wordBoxName);
     setState(() {
@@ -58,14 +58,13 @@ class _WordDetailsState extends State<WordDetails> {
                   fit:BoxFit.fill,
                 ),
                 onTap: () {
-                  print('*****tag:${widget.heroTag}*****');
                   _speak();
                   } ,
               ),
-//
+
               SizedBox(width: 11,),
               IconButton(
-                icon: widget.wordModel.isFavourite ? Icon(Icons.bookmark, size: 30,color: Colors.yellow,):
+                icon: widget.wordModel.isFavourite == 1.toString() ? Icon(Icons.bookmark, size: 30,color: Colors.yellow,):
                 Icon(Icons.bookmark_border, size: 31,color: Colors.yellow,),
                 onPressed: () => makeWordFavouriteOrNot(),
               ),
@@ -99,15 +98,16 @@ class _WordDetailsState extends State<WordDetails> {
                       FadeAnimation(1.1,Center(
                         child: Container(
                           padding: EdgeInsets.only(left: 20),
-                          color: Colors.lightGreen.shade200,
+                          color: Color(0xFF006666),
                           width: MediaQuery.of(context).size.width,
                           height: 33,
                           child: Text(
                             'Word',
                             style: TextStyle(
-                              fontWeight: FontWeight.w500,
+                              fontFamily: 'Kreon',
+                              fontWeight: FontWeight.w600,
                               fontSize: 25,
-                              color: Colors.black
+                              color: Colors.white
                             ),
                           ),
                         ),
@@ -118,24 +118,27 @@ class _WordDetailsState extends State<WordDetails> {
                         child: Text(
                           widget.wordModel.word,
                           style: TextStyle(
+                            fontFamily: 'Kreon',
                             fontSize: 33,
-                            fontWeight: FontWeight.w300
+                            fontWeight: FontWeight.w400
                           ),
                         ),
                       )),
                       SizedBox(height: 38,),
                       FadeAnimation(1.2,Center(
                         child: Container(
-                          color: Colors.lightGreen.shade200,
-                          padding: EdgeInsets.only(left: 20),
                           height: 33,
+                          color:Color(0xFF006666) ,
+//                          Colors.lightGreen.shade200,
+                          padding: EdgeInsets.only(left: 20),
                           width: MediaQuery.of(context).size.width,
                           child: Text(
-                            'Bangla Meaning',
+                            'Definition',
                             style: TextStyle(
-                              fontWeight: FontWeight.w500,
+                              fontFamily: 'Kreon',
+                              fontWeight: FontWeight.w600,
                               fontSize: 25,
-                              color: Colors.black
+                              color: Colors.white
                             ),
                           ),
                         ),
@@ -144,9 +147,10 @@ class _WordDetailsState extends State<WordDetails> {
                       FadeAnimation(1.25,Container(
                         padding: EdgeInsets.only(left: 20, right: 20),
                         child: Text(
-                          widget.wordModel.banglaMeaning,
+                          widget.wordModel.definition,
                           style: TextStyle(
-                            fontSize: 24,
+                            fontFamily: 'Fenix',
+                            fontSize: 22,
                             fontWeight: FontWeight.w300
                           ),
                         ),
@@ -155,15 +159,16 @@ class _WordDetailsState extends State<WordDetails> {
                       FadeAnimation(1.3,Center(
                         child: Container(
                           height: 33,
-                          color: Colors.lightGreen.shade200,
+                          color: Color(0xFF006666),
                           padding: EdgeInsets.only(left: 20),
                           width: MediaQuery.of(context).size.width,
                           child: Text(
-                            'English Meaning',
+                            'Examples',
                             style: TextStyle(
-                              fontWeight: FontWeight.w500,
+                              fontFamily: 'Kreon',
+                              fontWeight: FontWeight.w600,
                               fontSize: 25,
-                              color: Colors.black
+                              color: Colors.white
                             ),
                           ),
                         ),
@@ -172,10 +177,11 @@ class _WordDetailsState extends State<WordDetails> {
                       FadeAnimation(1.35,Container(
                         padding: EdgeInsets.only(left: 20, right: 20),
                         child: Text(
-                          widget.wordModel.englishMeaning,
+                          widget.wordModel.example,
                           style: TextStyle(
-                            fontSize: 24,
-                            fontWeight: FontWeight.w300
+                            fontFamily: 'Fenix',
+                            fontSize: 22,
+//                            fontWeight: FontWeight.w300
                           ),
                         ),
                       )),
@@ -183,15 +189,17 @@ class _WordDetailsState extends State<WordDetails> {
                       FadeAnimation(1.4,Center(
                         child: Container(
                           height: 33,
-                          color: Colors.lightGreen.shade200,
+                          color:Color(0xFF006666),
+//                          Colors.lightGreen.shade200,
                           padding: EdgeInsets.only(left: 20),
                           width: MediaQuery.of(context).size.width,
                           child: Text(
-                            'Definition',
+                            'Parts of Speech',
                             style: TextStyle(
-                              fontWeight: FontWeight.w500,
+                              fontFamily: 'Kreon',
+                              fontWeight: FontWeight.w600,
                               fontSize: 25,
-                              color: Colors.black
+                              color: Colors.white
                             ),
                           ),
                         ),
@@ -200,9 +208,10 @@ class _WordDetailsState extends State<WordDetails> {
                       FadeAnimation(1.45,Container(
                         padding: EdgeInsets.only(left: 20, right: 20),
                         child: Text(
-                          widget.wordModel.definition,
+                          widget.wordModel.partsOfSpeech,
                           style: TextStyle(
-                            fontSize: 20,
+                            fontFamily: 'Fenix',
+                            fontSize: 23,
                             fontWeight: FontWeight.w300
                           ),
                         ),

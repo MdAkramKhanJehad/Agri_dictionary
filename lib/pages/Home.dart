@@ -1,3 +1,4 @@
+import 'package:agridictionaryoffline/CustomWidgets.dart';
 import 'package:agridictionaryoffline/Model/WordModel.dart';
 import 'package:agridictionaryoffline/pages/AboutUs.dart';
 import 'package:agridictionaryoffline/pages/Favourite.dart';
@@ -23,7 +24,7 @@ class _HomeState extends State<Home> {
   int counter = 1;
 
 
-  void onPageChanged(int index){
+   onPageChanged(int index){
     if(this.mounted){
       setState(() {
         pageIndex = index;
@@ -49,7 +50,8 @@ class _HomeState extends State<Home> {
       height: 50,
       color: Colors.teal,
       buttonBackgroundColor: Colors.teal.shade700,
-      backgroundColor: Colors.white70,
+      backgroundColor: Colors.white,
+//      Colors.green.withOpacity(0.3),
       items: <Widget>[
         Icon(Icons.search, size: 25, color: Colors.black,),
         Icon(Icons.favorite_border, size: 25,color: Colors.black,),
@@ -68,88 +70,6 @@ class _HomeState extends State<Home> {
   }
 
 
-  makeCustomDialog(BuildContext context){
-    showDialog(
-      barrierDismissible: false,
-      context: context,
-      builder: (dialogContext){
-        Future.delayed(Duration(milliseconds:2500 ), () {
-//          Navigator.push(context, MaterialPageRoute(builder:
-//            (context) => Home()));
-          Navigator.of(dialogContext).pop();
-        });
-        return Dialog(
-//          key: _scaffoldKey,
-          shape: RoundedRectangleBorder(
-            borderRadius:BorderRadius.all(Radius.circular(25)),
-          ),
-          child: Stack(
-            overflow: Overflow.visible,
-            alignment: Alignment.topCenter,
-            children: <Widget>[
-              Container(
-                decoration: ShapeDecoration(
-                  gradient: LinearGradient(
-                    begin: Alignment.topRight,
-                    end: Alignment.bottomLeft,
-                    colors: [
-                      Colors.yellow.shade200,
-                      Colors.cyan.shade200
-                    ]
-                  ),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.all(
-                      Radius.circular(25),
-                    ),
-                    side: BorderSide(
-                      width: 1,
-                      color: Colors.black87,
-                    ),
-                  ),
-                ),
-
-                padding: EdgeInsets.fromLTRB(5,19,5,10),
-                height: 200,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: <Widget>[
-                    SizedBox(height: 45,),
-                    Text(
-                      'Dictionary of Agriculture',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        fontFamily: 'SuezOne',
-                        fontSize: 24,
-                        fontWeight: FontWeight.bold
-                      ),
-                    ),
-                    SizedBox(height: 15,),
-                    Text(
-                      'A service of Agri-Science Society(AgSS)',
-                      style: TextStyle(
-                        fontSize: 14,
-                        fontWeight: FontWeight.w500
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              Positioned(
-                top: -50,
-                child: CircleAvatar(
-                  backgroundColor: Colors.white,
-                  radius: 50,
-                  child: Image.asset('assets/leaf2.png',),
-                ),
-              )
-            ],
-          ),
-        );
-      }
-    );
-  }
-
-
   @override
   void initState() {
     super.initState();
@@ -159,14 +79,15 @@ class _HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
-    if(counter==1){
-      Future.delayed(Duration.zero, () =>makeCustomDialog(_scaffoldKey.currentContext));
-      counter++;
-      print('***counter: $counter***');
-    }
+//    if(counter==1){
+//      Future.delayed(Duration.zero, () =>makeCustomDialog(_scaffoldKey.currentContext));
+//      counter++;
+//      print('***counter: $counter***');
+//    }
 
     return Scaffold(
       key: _scaffoldKey,
+//      drawer: buildDrawer(context),
       body: PageView(
         children: <Widget>[
           SearchPage(),

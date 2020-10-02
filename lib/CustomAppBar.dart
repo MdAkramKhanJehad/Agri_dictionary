@@ -20,9 +20,9 @@ PreferredSize header(BuildContext context, String title){
                   title,
                   style: TextStyle(
                     color: Colors.black87,
-                    fontFamily: "SuezOne",
-                    fontWeight: FontWeight.normal,
-                    fontSize: 28
+                    fontFamily: "Fenix",
+                    fontWeight: FontWeight.bold,
+                    fontSize: 31
                   ),
                 ),
 
@@ -46,22 +46,29 @@ PreferredSize header(BuildContext context, String title){
   );
 }
 
+
+AppBar appBar(BuildContext context, String title){
+  return AppBar(
+    centerTitle: true,
+    title: Text(
+      title,
+      style: TextStyle(
+        fontSize: 31,
+        fontFamily: 'Kreon',
+        color: Colors.black87,
+        fontWeight: FontWeight.bold
+      ),
+    ),
+    backgroundColor: Colors.teal.shade400,
+    elevation: 1,
+  );
+}
+
 class CustomAppBar extends CustomClipper<Path>{
   @override
   Path getClip(Size size) {
     Path path = Path();
     path.lineTo(0, size.height);
-
-//    var firstEndPoint = Offset(size.width/5, (size.height/2)+20);
-//    var firstControlPoint = Offset(size.width/10, (size.height/2)+20);
-//    path.quadraticBezierTo(firstControlPoint.dx,firstControlPoint.dy ,
-//            firstEndPoint.dx, firstEndPoint.dy);
-//    path.lineTo(8*size.width/10, (size.height/2)+20);
-//    var lastEndPoint = Offset(size.width, size.height);
-//    var lastControlPoint = Offset(9*size.width/10, (size.height/2)+20);
-//    path.quadraticBezierTo(lastControlPoint.dx,lastControlPoint.dy ,
-//            lastEndPoint.dx, lastEndPoint.dy);
-
     path.lineTo(size.width, size.height);
     path.lineTo(size.width, 0);
 

@@ -16,8 +16,8 @@ class Favourite extends StatefulWidget {
 }
 
 class _FavouriteState extends State<Favourite> {
+  GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   Box<WordModel> wordBox;
-
 
   @override
   void initState() {
@@ -28,10 +28,14 @@ class _FavouriteState extends State<Favourite> {
   Widget build(BuildContext context) {
 
     return Scaffold(
-      appBar: header(context, 'Favourite Words'),
+      key: _scaffoldKey,
+      drawer: buildDrawer(context),
+//      backgroundColor: Colors.green.withOpacity(0.3),
+      appBar: appBar(context,'Favourite Words'),
+//      header(context, 'Favourite Words'),
 //      customAppBar(context, 'Favourite Words'),
       body: Container(
-          color: Colors.green.withOpacity(0.3),
+//          color: Colors.green.withOpacity(0.3),
 //          decoration: BoxDecoration(
 //            gradient: LinearGradient(
 //              begin: Alignment.topRight,
@@ -42,7 +46,8 @@ class _FavouriteState extends State<Favourite> {
 //              ]
 //            ),
 //          ),
-          padding: EdgeInsets.only(top: 20, left: 20, right: 20),
+
+          padding: EdgeInsets.only(top: 10, left: 20, right: 20),
           child: SingleChildScrollView(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -50,8 +55,9 @@ class _FavouriteState extends State<Favourite> {
                 ValueListenableBuilder(
                   valueListenable: wordBox.listenable(),
                   builder: (context, Box<WordModel> words,_){
+
                     var favouriteWords = wordBox.values.where((item) =>
-                                    item.isFavourite==true).toList();
+                                    item.isFavourite==1.toString()).toList();
                       return ListView.separated(
                           physics: NeverScrollableScrollPhysics(),
 //                      scrollDirection: Axis.vertical,
@@ -62,7 +68,10 @@ class _FavouriteState extends State<Favourite> {
                             return Hero(
                               tag: key,
                               child: Card(
-                                  color: Colors.white70,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(15.0),
+                                ),
+                                  color: Colors.teal.shade500,
                                   child: ListTile(
                                     onTap: () => Navigator.push(
                                       context,
@@ -73,10 +82,12 @@ class _FavouriteState extends State<Favourite> {
 //                              Navigator.push(context, MaterialPageRoute(builder:
 //                              (context) => WordDetails(wordModel:wordModel))),
                                     title:  Text(key, style: TextStyle(
-                                      fontSize: 20,
+                                      color: Colors.white,
+                                      fontFamily: 'Volkhov',
+                                      fontSize: 18,
                                       fontWeight: FontWeight.w400
                                     ),),
-                                    subtitle: Text(wordBox.get(key).banglaMeaning),
+//                                    subtitle: Text(wordBox.get(key).example),
                                   ),
 
                               ),

@@ -1,7 +1,7 @@
 import 'package:agridictionaryoffline/animation/FadeAnimation.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'WordDetails.dart';
+import 'package:agridictionaryoffline/CustomWidgets.dart';
 
 
 class AboutUs extends StatefulWidget {
@@ -10,34 +10,35 @@ class AboutUs extends StatefulWidget {
 }
 
 class _AboutUsState extends State<AboutUs> {
-  String sub = 'Suggestions About Agri-Dictionary';
-  String body  = '';
 
-  _launchURL() async {
-
-    final url = 'mailto:a.jehadkhan@gmail.com?subject=$sub&body=$body';
-    if (await canLaunch(url)) {
-      await launch(url);
-    } else {
-      throw 'Could not launch $url';
-    }
-  }
+//
+//  _launchURL() async {
+//    final String sub = 'Suggestions About Agri-Dictionary';
+//    final String body  = '';
+//    final url = 'mailto:agrisciencesociety@yahoo.com?subject=$sub&body=$body';
+//    if (await canLaunch(url)) {
+//      await launch(url);
+//    } else {
+//      throw 'Could not launch $url';
+//    }
+//  }
 
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration:  BoxDecoration(
-        gradient: LinearGradient(
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
-          colors: [
-            Colors.blueGrey.shade700,
-            Colors.grey.shade300
-          ]
-        ),
-      ),
-//      color: Colors.blueGrey.shade100,
+//      decoration:  BoxDecoration(
+//        gradient: LinearGradient(
+//          begin: Alignment.topLeft,
+//          end: Alignment.bottomRight,
+//          colors: [
+//            Colors.blueGrey.shade700,
+//            Colors.grey.shade300
+//          ]
+//        ),
+//      ),
+      color:Colors.white,
+//      Colors.green.withOpacity(0.3),
       padding: EdgeInsets.all(40),
       child: SingleChildScrollView(
         child: Column(
@@ -49,40 +50,43 @@ class _AboutUsState extends State<AboutUs> {
               'About Us',
               style: TextStyle(
                 fontSize: 40,
-                fontFamily: 'OdibeeSans',
+                fontFamily: 'Kreon',
                 fontWeight: FontWeight.bold
               ),
             )),
+            Divider(height: 5,color: Colors.black87,),
             SizedBox(height: 10,),
             Center(
               child: FadeAnimation(1.1,Text(
                 'Agri-Science Society(AgSS)',
                 style: TextStyle(
                   fontSize: 25,
-                  fontFamily: 'Oswald',
-                  fontWeight: FontWeight.w100
+                  fontFamily: 'Kreon',
+                  fontWeight: FontWeight.bold
                 ),
               )),
             ),
+            SizedBox(height: 7,),
             FadeAnimation(1.2,Text(
               '"Let\'s Make a Future of Agriculture"',
               style: TextStyle(
                 fontSize: 16,
-                fontFamily: 'Oswald',
-                fontWeight: FontWeight.w100
+                fontFamily: 'Kreon',
+                fontWeight: FontWeight.bold
               ),
             )),
-            SizedBox(height: 5,),
+            SizedBox(height: 13,),
             AspectRatio(
               aspectRatio: 16/9,
               child: FadeAnimation(1.3,Image(image: AssetImage('assets/leaf.png'),))
             ),
             SizedBox(height: 35,),
             FadeAnimation(1.4,Text(
+//              'Agri-Science Society(AgSS) is a non-profit agricultural organization founded on May,2019.The mission of AgSS is to transform traditional farming into smart farming.',
               'Any Suggestions?',
               style: TextStyle(
-                fontSize: 24,
-                fontFamily: 'Oswald',
+                fontSize: 22,
+                fontFamily: 'Volkhov',
                 fontWeight: FontWeight.w100
               ),
             )),
@@ -90,7 +94,7 @@ class _AboutUsState extends State<AboutUs> {
               child: FadeAnimation(1.5,RaisedButton(
                 hoverElevation: 1,
                 color: Colors.cyan,
-                onPressed: _launchURL,
+                onPressed:() => launchURL(),
                 child: Text('Mail AgSS'),
               )),
             ),
